@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Cost - บันทึกต้นทุนการปลูกพืช</title>
+
+    <!-- เชื่อมไฟล์ตกแต่งเว็บไซต์ -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ส่วนหัวเว็บไซต์ -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo">🌱</div>
+            <div>
+                <h1>Farm Cost</h1>
+                <p>บันทึกต้นทุนการปลูกพืช</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- เนื้อหาหลัก -->
+    <main class="layout">
+
+        <!-- ข้อความต้อนรับ -->
+        <section class="hero">
+            <p class="eyebrow">FARM MANAGEMENT</p>
+            <h2>สวัสดี! มาดูบัญชีฟาร์มกัน 🌾</h2>
+            <p>บันทึกค่าใช้จ่ายและรายรับในแต่ละรอบการปลูก</p>
+            <span id="periodPill">0 รอบการปลูก</span>
+        </section>
+
+        <!-- การ์ดสรุปยอด -->
+        <section class="stats">
+
+            <div class="stat">
+                <p>ต้นทุนรวม 🧾</p>
+                <h2 id="totalExpense">฿0.00</h2>
+                <small>รวมค่าใช้จ่ายที่บันทึกไว้</small>
+            </div>
+
+            <div class="stat">
+                <p>รายรับรวม 🪙</p>
+                <h2 id="totalIncome">฿0.00</h2>
+                <small>รวมรายรับจากการขายผลผลิต</small>
+            </div>
+
+            <div class="stat">
+                <p>กำไร / ขาดทุน 📈</p>
+                <h2 id="netProfit">฿0.00</h2>
+                <small>รายรับลบด้วยต้นทุนรวม</small>
+            </div>
+
+        </section>
+
+        <!-- พื้นที่แบบฟอร์มและประวัติ -->
+        <section class="columns">
+
+            <!-- แบบฟอร์มบันทึกรายการ -->
+            <div class="panel">
+                <div class="panel-head">
+                    <h3>＋ เพิ่มรายการใหม่</h3>
+                    <p>กรอกข้อมูลการปลูกและรายการเงิน</p>
+                </div>
+
+                <div class="panel-body">
+                    <form id="entryForm">
+
+                        <div class="field">
+                            <label for="crop">ชื่อพืช / รอบการปลูก *</label>
+                            <input
+                                id="crop"
+                                type="text"
+                                placeholder="เช่น ผักบุ้ง รอบที่ 1"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="date">วันที่ *</label>
+                            <input id="date" type="date" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="kind">ประเภทรายการ *</label>
+                            <select id="kind">
+                                <option value="expense">ค่าใช้จ่าย</option>
+                                <option value="income">รายรับ</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="category">หมวดหมู่</label>
+                            <select id="category">
+                                <option>ค่าเมล็ดพันธุ์</option>
+                                <option>ค่าปุ๋ย</option>
+                                <option>ค่าน้ำและค่าไฟ</option>
+                                <option>ค่าแรงงาน</option>
+                                <option>ค่าอุปกรณ์</option>
+                                <option>อื่น ๆ</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="amount">จำนวนเงิน (บาท) *</label>
+                            <input
+                                id="amount"
+                                type="number"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="เช่น 250"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="note">หมายเหตุ</label>
+                            <input
+                                id="note"
+                                type="text"
+                                placeholder="เช่น ซื้อปุ๋ยอินทรีย์"
+                            >
+                        </div>
+
+                        <button type="submit" class="btn primary">
+                            ＋ บันทึกรายการ
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- รายการย้อนหลัง -->
+            <div class="panel">
+                <div class="panel-head">
+                    <h3>📒 รายการย้อนหลัง</h3>
+                    <p id="recordCount">รายการทั้งหมด 0 รายการ</p>
+                </div>
+
+                <div id="records">
+                    <p>ยังไม่มีรายการ</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- เชื่อมไฟล์ JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

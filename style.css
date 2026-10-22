@@ -1,0 +1,550 @@
+
+/* =========================
+   1. ตั้งค่าสีและพื้นฐาน
+========================= */
+:root {
+    --green: #2f7548;
+    --green-light: #e6f3e9;
+    --background: #f4f7f1;
+    --white: #ffffff;
+    --text: #1e2b21;
+    --muted: #718071;
+    --border: #dfe7dc;
+    --shadow: 0 8px 26px rgba(25, 55, 30, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, "Noto Sans Thai", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 14px;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+/* =========================
+   2. ส่วนหัวเว็บไซต์
+========================= */
+.topbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    background: var(--green);
+    color: white;
+    border-radius: 17px;
+    font-size: 27px;
+}
+
+.brand h1 {
+    font-size: 23px;
+    margin-bottom: 4px;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.top-note {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: right;
+    line-height: 1.7;
+}
+
+/* =========================
+   3. พื้นที่เนื้อหาหลัก
+========================= */
+.layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 24px 45px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: clamp(23px, 3vw, 32px);
+    margin-bottom: 9px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.pill {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green);
+    border-radius: 30px;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* =========================
+   4. การ์ดสรุปยอดเงิน
+========================= */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.stat {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+}
+
+.stat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    background: #f5f7f3;
+    border-radius: 14px;
+    font-size: 20px;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 18px;
+    font-size: 26px;
+    overflow-wrap: anywhere;
+}
+
+.stat small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* =========================
+   5. กล่องแบบฟอร์มและประวัติ
+========================= */
+.columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-width: 0;
+}
+
+.panel-head {
+    padding: 24px 26px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-head h3 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.panel-head p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.panel-body {
+    padding: 26px;
+}
+
+/* =========================
+   6. ช่องกรอกข้อมูล
+========================= */
+.field {
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #f7f9f6;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #849184;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(47, 117, 72, 0.12);
+}
+
+.two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* =========================
+   7. ปุ่มบันทึกรายการ
+========================= */
+.btn {
+    border: none;
+    border-radius: 13px;
+    padding: 15px 18px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.99);
+}
+
+.primary {
+    background: var(--green);
+    color: var(--white);
+}
+
+.primary:hover {
+    background: #245f39;
+}
+
+.secondary {
+    background: #f2f6f0;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.full {
+    width: 100%;
+}
+
+/* =========================
+   8. คำแนะนำการใช้งาน
+========================= */
+.notice {
+    margin-top: 20px;
+    padding: 15px 17px;
+    background: #f7f9f5;
+    border: 1px dashed var(--border);
+    border-radius: 15px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.helper {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 14px;
+}
+
+/* =========================
+   9. รายการย้อนหลัง
+========================= */
+.tabs {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px 0;
+    flex-wrap: wrap;
+}
+
+.tab {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--muted);
+    border-radius: 10px;
+    padding: 9px 13px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.tab.active {
+    color: var(--green);
+    background: var(--green-light);
+    border-color: transparent;
+    font-weight: bold;
+}
+
+.records {
+    padding: 14px 24px 22px;
+}
+
+.record {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.record:last-child {
+    border-bottom: none;
+}
+
+.record-main {
+    min-width: 0;
+}
+
+.record-title {
+    font-size: 14px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.record-meta {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+    line-height: 1.7;
+}
+
+.record-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.amount {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.type-expense {
+    color: #b84a40;
+}
+
+.type-income {
+    color: var(--green);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.mini {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.mini:hover {
+    color: var(--green);
+}
+
+.empty {
+    text-align: center;
+    padding: 38px 16px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.empty span {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   10. ข้อความแจ้งเตือนและท้ายเว็บ
+========================= */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    background: #203c29;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    display: none;
+    z-index: 5;
+    max-width: calc(100% - 24px);
+}
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 28px;
+}
+
+/* =========================
+   11. รองรับมือถือ
+========================= */
+@media (max-width: 700px) {
+    .topbar {
+        padding: 15px 18px;
+    }
+
+    .layout {
+        padding: 22px 14px 32px;
+    }
+
+    .hero {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .top-note {
+        display: none;
+    }
+
+    .stats {
+        gap: 10px;
+    }
+
+    .stat {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .stat strong {
+        font-size: 19px;
+        margin-top: 12px;
+    }
+
+    .stat small {
+        font-size: 11px;
+    }
+
+    .panel {
+        border-radius: 18px;
+    }
+
+    .panel-head {
+        padding: 20px;
+    }
+
+    .panel-body {
+        padding: 20px;
+    }
+
+    .two {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        padding: 17px;
+    }
+
+    .stat strong {
+        font-size: 23px;
+    }
+
+    .two {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .panel-head {
+        padding: 18px;
+    }
+
+    .panel-body {
+        padding: 18px;
+    }
+
+    .record {
+        align-items: flex-start;
+    }
+}
